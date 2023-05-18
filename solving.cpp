@@ -35,10 +35,16 @@ std::string	second_degree(std::vector<float> const &equation)
 	else
 	{
 		oss << "Discriminant is negative, the two solutions are:" << std::endl;
-		oss << '(' << -equation[1] << " + i√" << -discriminant << ") / ";
-		oss << (2 * equation[2]) << std::endl;
-		oss << '(' << -equation[1] << " - i√" << -discriminant << ") / ";
-		oss << (2 * equation[2]);
+		oss << ((-equation[1]) / (2 * equation[2]));
+		oss << " + " << (sqrt(-discriminant)/(2 * equation[2])) << 'i' << std::endl;
+		oss << ((-equation[1]) / (2 * equation[2]));
+		oss << " - " << (sqrt(-discriminant)/(2 * equation[2])) << 'i';
+
+		// unsimplified version
+		// oss << '(' << -equation[1] << " + i√" << -discriminant << ") / ";
+		// oss << (2 * equation[2]) << std::endl;
+		// oss << '(' << -equation[1] << " - i√" << -discriminant << ") / ";
+		// oss << (2 * equation[2]);
 	}
 	return (oss.str());
 }
