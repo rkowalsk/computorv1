@@ -1,10 +1,12 @@
 NAME = computor 
 
-HEADERS_DIR = headers
+HEADERS_DIR = .
 
-HEADERS =
+HEADERS = computor.hpp
 
-SRCS = computor.cpp
+SRCS =	computor.cpp \
+		parsing.cpp \
+		solving.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
@@ -18,7 +20,7 @@ $(NAME): $(OBJS) $(HEADERS)
 	$(COMPILER) $(OBJS) -o $(NAME)
 
 $(OBJS): %.o: %.cpp $(HEADERS)
-	$(COMPILER) -Wall -Wextra -Werror -g -I$(HEADERS_DIR) -c $< -o $@
+	$(COMPILER) -Wall -Wextra -Werror -g2 -I$(HEADERS_DIR) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
